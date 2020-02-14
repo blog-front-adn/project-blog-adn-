@@ -46,7 +46,7 @@ console.log("data hasil post",statePost);
 
 useEffect(async () => {
 const result = await 
-  axios.get(`http://localhost:5000/apayya`)
+  axios.get(`https://simpleappku.herokuapp.com/fdg`)
 .then(res => {
   console.log("ini datanya",res);   
   setstatePost (res.data.data);
