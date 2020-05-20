@@ -15,6 +15,7 @@ import Footer from './Footer';
 import Post from './Post';
 import post2 from './blog-post.2.md';
 import post3 from './blog-post.3.md';
+import Nav from './Nav'
 
 const useStyles = makeStyles(theme => ({
   mainGrid: {
@@ -107,6 +108,7 @@ export default function Blog() {
       <CssBaseline />
       <Container maxWidth="lg">
         <Header title="Blog" sections={sections} />
+        <Nav />
         <main>
           <MainFeaturedPost post={mainFeaturedPost} />
           <Grid container spacing={4}>
