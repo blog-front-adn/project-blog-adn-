@@ -30,7 +30,7 @@ const post1 = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
 
 const sections = [
   { title: 'mtk', url: '#' },
-  { title: 'Design', url: '#' },
+  { title: 'tkj', url: '#' },
   { title: 'Culture', url: '#' },
   { title: 'Business', url: '#' },
   { title: 'Politics', url: '#' },
