@@ -107,7 +107,7 @@ export default function Blog() {
     <React.Fragment>
       <CssBaseline />
       <Container maxWidth="lg">
-        <Header title="Blog" sections={sections} />
+        <Header title="amir nurul" sections={sections} />
         <Nav />
         <main>
           <MainFeaturedPost post={mainFeaturedPost} />
