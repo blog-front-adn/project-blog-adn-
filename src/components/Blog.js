@@ -29,7 +29,7 @@ const useStyles = makeStyles(theme => ({
 const post1 = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
 
 const sections = [
-  { title: 'Technology', url: '#' },
+  { title: 'mtk', url: '#' },
   { title: 'Design', url: '#' },
   { title: 'Culture', url: '#' },
   { title: 'Business', url: '#' },
@@ -107,7 +107,7 @@ export default function Blog() {
     <React.Fragment>
       <CssBaseline />
       <Container maxWidth="lg">
-        <Header title="amir nurul" sections={sections} />
+        <Header title="ubah" sections={sections} />
         <Nav />
         <main>
           <MainFeaturedPost post={mainFeaturedPost} />
