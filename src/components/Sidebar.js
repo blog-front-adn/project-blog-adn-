@@ -28,14 +28,14 @@ export default function Sidebar(props) {
         </Typography>
         <Typography>{description}</Typography>
       </Paper>
-      <Typography variant="h6" gutterBottom className={classes.sidebarSection}>
+      {/* <Typography variant="h6" gutterBottom className={classes.sidebarSection}>
         Archives
-      </Typography>
-      {archives.map(archive => (
+      </Typography> */}
+      {/* {archives.map(archive => (
         <Link display="block" variant="body1" href={archive.url} key={archive.title}>
           {archive.title}
         </Link>
-      ))}
+      ))} */}
       <Typography variant="h6" gutterBottom className={classes.sidebarSection}>
         Social
       </Typography>

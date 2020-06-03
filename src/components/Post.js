@@ -54,11 +54,6 @@ reset(){
     <button onClick={() => this.incre()}>+</button>
     <button onClick={() => this.decre()}>-</button>
     <button onClick={() => this.reset()}>reset</button>
-    <ul>
-        { this.state.persons.map(person => <li>{person.name}</li>)}
-      </ul>
-
-
             </div>
                {/* <Grid item xs={12} md={8}>
                <Typography variant="h6" gutterBottom>

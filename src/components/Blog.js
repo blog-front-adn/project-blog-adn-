@@ -12,10 +12,11 @@ import FeaturedPost from './FeaturedPost';
 import Main from './Main';
 import Sidebar from './Sidebar';
 import Footer from './Footer';
-import Post from './Post';
+
 import post2 from './blog-post.2.md';
 import post3 from './blog-post.3.md';
-import Nav from './Nav'
+import Gambar from './pict/1.JPG';
+
 
 const useStyles = makeStyles(theme => ({
   mainGrid: {
@@ -29,16 +30,11 @@ const useStyles = makeStyles(theme => ({
 const post1 = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
 
 const sections = [
-  { title: 'mtk', url: '#' },
-  { title: 'tkj', url: '#' },
-  { title: 'Culture', url: '#' },
-  { title: 'Business', url: '#' },
-  { title: 'Politics', url: '#' },
-  { title: 'Opinion', url: '#' },
-  { title: 'Science', url: '#' },
-  { title: 'Health', url: '#' },
-  { title: 'Style', url: '#' },
-  { title: 'Travel', url: '#' },
+  { title: 'Aljabar', url: '#' },
+  { title: 'Geometri dan Trigonometri', url: '#' },
+  { title: 'Statistika dan Peluang', url: '#' },
+  { title: 'Kalkulus', url: '#' },
+  
 ];
 
 const mainFeaturedPost = {
@@ -59,7 +55,7 @@ const featuredPosts = [
     date: 'Nov 12',
     description:
       'This is a wider card with supporting text below as a natural lead-in to additional content.',
-    image: 'https://source.unsplash.com/random',
+    image: Gambar,
     imageText: 'Image Text',
   },
   {
@@ -93,8 +89,9 @@ const sidebar = {
     { title: 'May 1999', url: '#' },
     { title: 'April 1999', url: '#' },
   ],
+  
   social: [
-    { name: 'GitHub', icon: GitHubIcon },
+    { name: 'GitHub', icon: GitHubIcon,  },
     { name: 'Twitter', icon: TwitterIcon },
     { name: 'Facebook', icon: FacebookIcon },
   ],
@@ -108,7 +105,7 @@ export default function Blog() {
       <CssBaseline />
       <Container maxWidth="lg">
         <Header title="ubah" sections={sections} />
-        <Nav />
+        
         <main>
           <MainFeaturedPost post={mainFeaturedPost} />
           <Grid container spacing={4}>
@@ -131,8 +128,11 @@ export default function Blog() {
           </Grid>
         </main>
       </Container>
-      <Footer title="Footer" description="Something here to give the footer a purpose!" />
-      <Post />
+      <Footer title="Hello" description="Something here to give the footer a purpose!" />
+      
+    
+
     </React.Fragment>
   );
 }
+
