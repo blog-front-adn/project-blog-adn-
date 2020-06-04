@@ -13,6 +13,11 @@
   }
 }
 
+.class-gambar{
+  width:100%;
+  height: 100px;
+  background-color: #282c34;
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
