@@ -119,7 +119,7 @@ export default function Blog() {
         title="Hello"
         description="Something here to give the footer a purpose!"
       />
-      <p style={{color : "red"}}>testtt</p>
+      
     </React.Fragment>
   );
 }

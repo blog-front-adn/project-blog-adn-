@@ -36,7 +36,7 @@ export default function Sidebar(props) {
           {archive.title}
         </Link>
       ))} */}
-      <Typography variant="h6" gutterBottom className={classes.sidebarSection}>
+      {/* <Typography variant="h6" gutterBottom className={classes.sidebarSection}>
         Social
       </Typography>
       {social.map(network => (
@@ -48,7 +48,7 @@ export default function Sidebar(props) {
             <Grid item>{network.name}</Grid>
           </Grid>
         </Link>
-      ))}
+      ))} */}
     </Grid>
   );
 }
