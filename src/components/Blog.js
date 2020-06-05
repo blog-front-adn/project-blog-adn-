@@ -26,16 +26,16 @@ const useStyles = makeStyles((theme) => ({
 
 const post1 = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
 
-const mainFeaturedPost = {
-  title: "Title of a longer featured blog post",
-  description:
-    "Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents.",
-  image: "https://source.unsplash.com/random",
-  imgText: "main image description",
-  linkText: "Continue reading…",
-};
+// const mainFeaturedPost = {
+//   title: "Title of a longer featured blog post",
+//   description:
+//     "Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents.",
+//   image: "https://source.unsplash.com/random",
+//   imgText: "main image description",
+//   linkText: "Continue reading…",
+// };
 
-console.log("ini ooo", mainFeaturedPost);
+// console.log("ini ooo", mainFeaturedPost);
 
 const featuredPosts = [
   {
@@ -95,7 +95,7 @@ export default function Blog() {
 
         <main>
           <Carousel />
-          <MainFeaturedPost post={mainFeaturedPost} />
+          {/* <MainFeaturedPost post={mainFeaturedPost} /> */}
           <Grid container spacing={4}>
             {featuredPosts.map((post) => (
               <FeaturedPost key={post.title} post={post} />

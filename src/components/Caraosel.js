@@ -1,7 +1,7 @@
 import React from "react";
 import Carousel from 'react-bootstrap/Carousel'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Pict1 from "./pict/1.JPG" 
+import Pict1 from "./pict/2.png" 
 
 import '../App.css'
 
@@ -42,10 +42,10 @@ const slide =[{
     alt="First slide"
   />
   <Carousel.Caption>
-  <h3>{data.h3}</h3>
+  {/* <h3>{data.h3}</h3>
   <p>{data.p}</p>
   <p>{data.p2}</p>
-  <p>{data.cgdcgh}</p>
+  <p>{data.cgdcgh}</p> */}
   </Carousel.Caption>
 </Carousel.Item>
   ))} 
