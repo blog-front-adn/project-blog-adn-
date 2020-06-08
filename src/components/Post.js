@@ -1,72 +1,79 @@
-import React, { Component } from 'react'
-import axios from 'axios';
+import React, { useEffect, useState } from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import Card from "@material-ui/core/Card";
+import CardActionArea from "@material-ui/core/CardActionArea";
+import CardActions from "@material-ui/core/CardActions";
+import CardContent from "@material-ui/core/CardContent";
+import CardMedia from "@material-ui/core/CardMedia";
+import Button from "@material-ui/core/Button";
+import Typography from "@material-ui/core/Typography";
 
-export default class Class extends Component {
-  
-constructor(props){
-    super (props)
-    this.state = {
-        persons: []
-      }
-}
+import "bootstrap/dist/css/bootstrap.min.css";
+import Grid from "@material-ui/core/Grid";
 
-componentDidMount() {
-    axios.get(`https://jsonplaceholder.typicode.com/users`)
-      .then(res => {
-        const persons = res.data;
-        this.setState({ persons });
-      })
+const useStyles = makeStyles({
+  root: {
+    maxWidth: 400,
+  },
+  media: {
+    height: 140,
+  },
+});
+
+export default function Post(props) {
+  console.log(props);
+
+  const classes = useStyles();
+
+  const [statePost, setstatePost] = useState(props.post);
+
+  let rslt2 = [];
+  for (let i = 0; i < statePost.length; i++) {
+    let dump = statePost[i].post;
+    let rslt = dump.substring(0, 150);
+    rslt2.push(rslt);
   }
 
-incre(){
-    this.setState({
-        count : this.state.count + 1
-    })
-}
+  let forIndx = 0;
 
-
-decre(){
-   
-    this.setState({
-        count : this.state.count - 1
-    })
-    if (this.state.count < 1){
-        this.setState({
-            count : 0
-        })  
-    }
-}
-
-
-reset(){
-    this.setState({
-        count : 0
-    })
-}
-
-
-    render() {
-
-        return (
-            <React.Fragment>
-            <div>
-    <h1>{this.state.count}</h1>
-    <button onClick={() => this.incre()}>+</button>
-    <button onClick={() => this.decre()}>-</button>
-    <button onClick={() => this.reset()}>reset</button>
-            </div>
-               {/* <Grid item xs={12} md={8}>
-               <Typography variant="h6" gutterBottom>
-                 {title}
-               </Typography>
-               <Divider />
-               {posts.map(post => (
-                 <Markdown className={classes.markdown} key={post.substring(0, 40)}>
-                   {post}
-                 </Markdown>
-               ))}
-             </Grid> */}
-             </React.Fragment>
-        )
-    }
+  return (
+    <React.Fragment>
+      {statePost.length > 0
+        ? statePost.map((post) => (
+            <Grid item xs={6}>
+              {/* <Paper className={classes.paper}>xs=8</Paper> */}
+              <Card className={classes.root}>
+                <CardActionArea>
+                  <CardMedia
+                    className={classes.media}
+                    image={props.image}
+                    title="Contemplative Reptile"
+                  />
+                  <CardContent>
+                    <Typography gutterBottom variant="h5" component="h2">
+                      {post.title}
+                    </Typography>
+                    <Typography
+                      variant="body2"
+                      color="textSecondary"
+                      component="p"
+                    >
+                      {rslt2[forIndx++]}.....
+                    </Typography>
+                  </CardContent>
+                </CardActionArea>
+                <CardActions>
+                  <Button size="small" color="primary">
+                    Share
+                  </Button>
+                  <Button size="small" color="primary">
+                    Learn More
+                  </Button>
+                </CardActions>
+              </Card>
+            </Grid>
+          ))
+        : ""}
+    </React.Fragment>
+  );
 }
