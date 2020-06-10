@@ -4,7 +4,6 @@ import Header from "../components/headers/Header";
 import Container from "@material-ui/core/Container";
 import Footer from "../components/Footer";
 import AljabarPict from "../components/pict/aljabar.jpg";
-import Post from "../components/Post";
 import Grid from "@material-ui/core/Grid";
 import PostMateri from "../components/PostMateri";
 

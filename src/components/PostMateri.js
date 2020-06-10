@@ -9,6 +9,7 @@ import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Hidden from "@material-ui/core/Hidden";
+import { Link, withRouter, useLocation } from "react-router-dom";
 
 const useStyles = makeStyles({
   card: {
@@ -26,7 +27,8 @@ const useStyles = makeStyles({
 export default function FeaturedPost(props) {
   const classes = useStyles();
   const { post } = props;
-  console.log(props);
+  const location = useLocation();
+  console.log(location);
 
   // fungsi Potong panjang text sebnayak
 
@@ -37,31 +39,33 @@ export default function FeaturedPost(props) {
 
   return (
     <Grid item xs={12}>
-      <CardActionArea component="div">
-        <Card className={classes.card}>
-          <div className={classes.cardDetails}>
-            <CardContent>
-              <Typography component="h4" variant="h6">
-                {post.title}
-              </Typography>
-              <Typography variant="subtitle1" paragraph>
-                {rslt}....
-              </Typography>
-              <Typography variant="subtitle1" color="primary">
-                Continue reading...
-              </Typography>
-            </CardContent>
-          </div>
-          <Hidden only>
-            <CardMedia
-              id="dataa"
-              className={classes.cardMedia}
-              image={post.image}
-              title={post.imageText}
-            />
-          </Hidden>
-        </Card>
-      </CardActionArea>
+      <Link to="/tesrtsr">
+        <CardActionArea component="div">
+          <Card className={classes.card}>
+            <div className={classes.cardDetails}>
+              <CardContent>
+                <Typography component="h4" variant="h6">
+                  {post.title}
+                </Typography>
+                <Typography variant="subtitle1" paragraph>
+                  {rslt}....
+                </Typography>
+                <Typography variant="subtitle1" color="primary">
+                  Continue reading...
+                </Typography>
+              </CardContent>
+            </div>
+            <Hidden only>
+              <CardMedia
+                id="dataa"
+                className={classes.cardMedia}
+                image={post.image}
+                title={post.imageText}
+              />
+            </Hidden>
+          </Card>
+        </CardActionArea>
+      </Link>
     </Grid>
   );
 }
