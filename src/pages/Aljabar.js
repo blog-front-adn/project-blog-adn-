@@ -6,35 +6,47 @@ import Footer from "../components/Footer";
 import AljabarPict from "../components/pict/aljabar.jpg";
 import Post from "../components/Post";
 import Grid from "@material-ui/core/Grid";
+import PostMateri from "../components/PostMateri";
 
 export default function Aljabar() {
-  let data = [
+  const data = [
     {
-      title: "materi about aljabar",
-      post:
-        "my post data Cum sociis natoque penatibus et magnis dis parturient mo",
+      title: "Aljabar adalah",
+
+      description:
+        'Aljabar (dari bahasa arab " al-jabr " yang berarti " pengumpulan bagian yang rusak") adalah salah satu bagian dari bidang matematika yang luas, bersama-sama dengan teori bilangan,',
+      image: AljabarPict,
     },
     {
-      title: "what is X and Y ?",
-      post:
-        "my post data Cum sociis natoque penatibus et magnis dis parturient mo",
+      title: "Aljabar adalah",
+
+      description:
+        'Aljabar (dari bahasa arab " al-jabr " yang berarti " pengumpulan bagian yang rusak") adalah salah satu bagian dari bidang matematika yang luas, bersama-sama dengan teori bilangan,',
+      image: AljabarPict,
     },
     {
-      title: "my third post",
-      post:
-        "my post data Cum sociis natoque penatibus et magnis dis parturient mo",
+      title: "Aljabar adalah",
+
+      description:
+        'Aljabar (dari bahasa arab " al-jabr " yang berarti " pengumpulan bagian yang rusak") adalah salah satu bagian dari bidang matematika yang luas, bersama-sama dengan teori bilangan,',
+      image: AljabarPict,
     },
     {
-      title: "my four post",
-      post:
-        "my post data Cum sociis natoque penatibus et magnis dis parturient mo",
+      title: "Aljabar adalah",
+
+      description:
+        'Aljabar (dari bahasa arab " al-jabr " yang berarti " pengumpulan bagian yang rusak") adalah salah satu bagian dari bidang matematika yang luas, bersama-sama dengan teori bilangan,',
+      image: AljabarPict,
     },
     {
-      title: "my five post",
-      post:
-        "my post data Cum sociis natoque penatibus et magnis dis parturient mo",
+      title: "Aljabar adalah",
+
+      description:
+        'Aljabar (dari bahasa arab " al-jabr " yang berarti " pengumpulan bagian yang rusak") adalah salah satu bagian dari bidang matematika yang luas, bersama-sama dengan teori bilangan,',
+      image: AljabarPict,
     },
   ];
+
   return (
     <React.Fragment>
       <CssBaseline />
@@ -42,8 +54,10 @@ export default function Aljabar() {
         <Header />
 
         <main>
-          <Grid container spacing={2}>
-            <Post image={AljabarPict} post={data} />
+          <Grid container spacing={4}>
+            {data.map((post) => (
+              <PostMateri key={post.title} post={post} />
+            ))}
           </Grid>
         </main>
       </Container>
