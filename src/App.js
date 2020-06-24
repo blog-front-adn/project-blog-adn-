@@ -6,6 +6,7 @@ import Geometri from "./pages/GeoAndTrigon";
 import Statistika from "./pages/StatistikaAndPeluang";
 import Kalkulus from "./pages/Kalkulus";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Login from "./pages/Login";
 
 function App() {
   return (
@@ -25,6 +26,9 @@ function App() {
         </Route>
         <Route path="/kalkulus">
           <Kalkulus />
+        </Route>
+        <Route path="/login-adn">
+          <Login />
         </Route>
       </Switch>
     </Router>
