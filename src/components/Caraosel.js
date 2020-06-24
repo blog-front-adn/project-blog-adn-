@@ -1,7 +1,7 @@
 import React from "react";
 import Carousel from "react-bootstrap/Carousel";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Pict1 from "./pict/2.png";
+import Pict1 from "./pict/3.png";
 
 import "../App.css";
 
