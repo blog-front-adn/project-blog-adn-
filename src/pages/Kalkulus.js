@@ -3,7 +3,7 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import Header from "../components/headers/Header";
 import Container from "@material-ui/core/Container";
 import Footer from "../components/Footer";
-import CalcuPict from "../components/pict/aljabar.jpg";
+import CalcuPict from "../components/pict/calcu.png";
 import Grid from "@material-ui/core/Grid";
 import PostMateri from "../components/PostMateri";
 

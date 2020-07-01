@@ -3,36 +3,46 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import Header from "../components/headers/Header";
 import Container from "@material-ui/core/Container";
 import Footer from "../components/Footer";
+import CalcuPict from "../components/pict/trigono.jpg";
 import Grid from "@material-ui/core/Grid";
-import Post from "../components/Post";
-import TrigonoPict from "../components/pict/triginometri.jpg";
+import PostMateri from "../components/PostMateri";
 
-export default function GeoAndTrigon() {
-  let data = [
+export default function Calcu() {
+  const data = [
     {
-      title: "materi about trigono",
-      post:
-        "my post data Cum sociis natoque penatibus et magnis dis parturient mo",
+      title: "Hai, Calculus",
+
+      description:
+        'Aljabar (dari bahasa arab " al-jabr " yang berarti " pengumpulan bagian yang rusak") adalah salah satu bagian dari bidang matematika yang luas, bersama-sama dengan teori bilangan,',
+      image: CalcuPict,
     },
     {
-      title: "materi about geometri",
-      post:
-        "my post data Cum sociis natoque penatibus et magnis dis parturient mo",
+      title: "Aljabar adalah",
+
+      description:
+        'Aljabar (dari bahasa arab " al-jabr " yang berarti " pengumpulan bagian yang rusak") adalah salah satu bagian dari bidang matematika yang luas, bersama-sama dengan teori bilangan,',
+      image: CalcuPict,
     },
     {
-      title: "my third post",
-      post:
-        "my post data Cum sociis natoque penatibus et magnis dis parturient mo",
+      title: "Aljabar adalah",
+
+      description:
+        'Aljabar (dari bahasa arab " al-jabr " yang berarti " pengumpulan bagian yang rusak") adalah salah satu bagian dari bidang matematika yang luas, bersama-sama dengan teori bilangan,',
+      image: CalcuPict,
     },
     {
-      title: "my four post",
-      post:
-        "my post data Cum sociis natoque penatibus et magnis dis parturient mo",
+      title: "Aljabar adalah",
+
+      description:
+        'Aljabar (dari bahasa arab " al-jabr " yang berarti " pengumpulan bagian yang rusak") adalah salah satu bagian dari bidang matematika yang luas, bersama-sama dengan teori bilangan,',
+      image: CalcuPict,
     },
     {
-      title: "my five post",
-      post:
-        "my post data Cum sociis natoque penatibus et magnis dis parturient mo",
+      title: "Aljabar adalah",
+
+      description:
+        'Aljabar (dari bahasa arab " al-jabr " yang berarti " pengumpulan bagian yang rusak") adalah salah satu bagian dari bidang matematika yang luas, bersama-sama dengan teori bilangan,',
+      image: CalcuPict,
     },
   ];
 
@@ -41,9 +51,12 @@ export default function GeoAndTrigon() {
       <CssBaseline />
       <Container maxWidth="lg">
         <Header />
+
         <main>
-          <Grid container spacing={3}>
-            <Post image={TrigonoPict} post={data} />
+          <Grid container spacing={4}>
+            {data.map((post) => (
+              <PostMateri key={post.title} post={post} />
+            ))}
           </Grid>
         </main>
       </Container>

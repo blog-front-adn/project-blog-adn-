@@ -45,15 +45,16 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Login() {
   const classes = useStyles();
-  const submit = () => {};
+  // const submit = () => {};
   const [name, setName] = useState("");
   const [pass, setPass] = useState("");
+
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
     console.log({
-      name: name,
-      pass: pass,
+      nameUser: name,
+      passUser: pass,
     });
 
     if (name === "amir" && pass === "adn12345") {
@@ -102,7 +103,7 @@ export default function Login() {
             variant="contained"
             color="primary"
             className={classes.submit}
-            onClick={submit}
+            // onClick={submit}
           >
             Sign In
           </Button>
