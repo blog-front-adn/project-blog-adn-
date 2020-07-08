@@ -29,47 +29,43 @@ export default function FeaturedPost(props) {
   const { post } = props;
   const location = useLocation();
   console.log(location);
-
-  // fungsi Potong panjang text sebnayak
-
-  let dump = props.post.description;
-  let rslt = dump.substring(0, 75);
-
-  // akhir fungsi
+  console.log(post);
 
   return (
-    <Grid item xs={12}>
-      <Link to="/tesrtsr">
-        <CardActionArea component="div">
-          <Card className={classes.card}>
-            <div className={classes.cardDetails}>
-              <CardContent>
-                <Typography component="h4" variant="h6">
-                  {post.title}
-                </Typography>
-                <Typography variant="subtitle1" paragraph>
-                  {rslt}....
-                </Typography>
-                <Typography variant="subtitle1" color="primary">
-                  Continue reading...
-                </Typography>
-              </CardContent>
-            </div>
-            <Hidden only>
-              <CardMedia
-                id="dataa"
-                className={classes.cardMedia}
-                image={post.image}
-                title={post.imageText}
-              />
-            </Hidden>
-          </Card>
-        </CardActionArea>
-      </Link>
-    </Grid>
+    <React.Fragment>
+      {post.length > 0
+        ? post.map((post, index) => (
+            <Grid item xs={12} key={index}>
+              <Link to="/tesrtsr">
+                <CardActionArea component="div">
+                  <Card className={classes.card}>
+                    <div className={classes.cardDetails}>
+                      <CardContent>
+                        <Typography component="h4" variant="h6">
+                          {post.title}
+                        </Typography>
+                        <Typography variant="subtitle1" paragraph>
+                          {post.thumbailPost}....
+                        </Typography>
+                        <Typography variant="subtitle1" color="primary">
+                          Continue reading...
+                        </Typography>
+                      </CardContent>
+                    </div>
+                    {/* <Hidden only>
+                      <CardMedia
+                        id="dataa"
+                        className={classes.cardMedia}
+                        image={post.image}
+                        title={post.imageText}
+                      />
+                    </Hidden> */}
+                  </Card>
+                </CardActionArea>
+              </Link>
+            </Grid>
+          ))
+        : ""}
+    </React.Fragment>
   );
 }
-
-FeaturedPost.propTypes = {
-  post: PropTypes.object,
-};

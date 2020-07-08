@@ -7,6 +7,7 @@ import Statistika from "./pages/StatistikaAndPeluang";
 import Kalkulus from "./pages/Kalkulus";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Login from "./pages/Login";
+import CreatePost from "./pages/CreatePost";
 
 function App() {
   return (
@@ -29,6 +30,9 @@ function App() {
         </Route>
         <Route path="/login-adn">
           <Login />
+        </Route>
+        <Route path="/createPost">
+          <CreatePost />
         </Route>
       </Switch>
     </Router>

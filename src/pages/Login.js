@@ -9,6 +9,10 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
+import axios from "axios";
+import { useHistory } from "react-router-dom";
+
+const api = process.env.REACT_APP_API_LOGIN;
 
 function Copyright() {
   return (
@@ -44,23 +48,44 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Login() {
+  let history = useHistory();
+
   const classes = useStyles();
   // const submit = () => {};
   const [name, setName] = useState("");
   const [pass, setPass] = useState("");
+  const [data, setData] = useState({});
+  const user = { name: name, password: pass };
 
-
-  const handleSubmit = (evt) => {
+  const handleSubmit = async (evt) => {
     evt.preventDefault();
     console.log({
       nameUser: name,
       passUser: pass,
     });
+    var body = {
+      name: name,
+      password: pass,
+    };
 
-    if (name === "amir" && pass === "adn12345") {
-      alert("succes login");
-    }
+    axios({
+      method: "post",
+      url: api,
+      data: body,
+    })
+      .then(function(response) {
+        setData(response.data.data);
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
   };
+  if (data.length > 0) {
+    localStorage.setItem("login", true);
+    history.push("/createPost");
+    console.log("jalan ??");
+  }
+  console.log(data.length);
 
   return (
     <Container component="main" maxWidth="xs">
