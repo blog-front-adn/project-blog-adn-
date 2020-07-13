@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import Header from "../components/headers/Header";
 import Container from "@material-ui/core/Container";
+import Grid from "@material-ui/core/Grid";
+import axios from "axios";
+import Header from "../components/headers/Header";
 import Footer from "../components/Footer";
 import AljabarPict from "../components/pict/aljabar.jpg";
-import Grid from "@material-ui/core/Grid";
 import PostMateri from "../components/PostMateri";
-import axios from "axios";
 import Markdown from "../components/Markdown";
 
 const api = process.env.REACT_APP_API;
@@ -16,8 +16,7 @@ export default function Aljabar() {
 
   useEffect(() => {
     async function fetchMyAPI() {
-      let url = api;
-      let config = {};
+      const url = api;
       const response = await axios.get(url);
       console.log(response);
       setData(response.data.data);

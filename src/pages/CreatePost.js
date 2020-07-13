@@ -1,15 +1,124 @@
 import React, { Component } from "react";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import Container from "@material-ui/core/Container";
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
+import { makeStyles } from "@material-ui/core/styles";
+import { withStyles } from "@material-ui/core/styles";
 import { convertToRaw } from "draft-js";
 import { Editor } from "react-draft-wysiwyg";
 import draftToMarkdown from "draftjs-to-markdown";
 import "../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import Chc from "../components/CheckLogin";
+import { convertFromRaw } from "draft-js";
+import MenuItem from "@material-ui/core/MenuItem";
+import axios from "axios";
 
-export default class CreatePost extends Component {
-  state = {
-    editorState: undefined,
-    data: "",
-  };
+const api = process.env.REACT_APP_API_POST;
+
+const useStyles = (theme) => ({
+  root: {
+    "& .MuiTextField-root": {
+      margin: theme.spacing(1),
+      width: "25ch",
+    },
+  },
+
+  paper: {
+    marginTop: theme.spacing(8),
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  },
+  avatar: {
+    margin: theme.spacing(1),
+    backgroundColor: theme.palette.secondary.main,
+  },
+  form: {
+    width: "100%", // Fix IE 11 issue.
+    marginTop: theme.spacing(1),
+  },
+  submit: {
+    margin: theme.spacing(3, 0, 2),
+  },
+});
+
+const currencies = [
+  {
+    value: "1",
+    label: "Aljabar",
+  },
+  {
+    value: "2",
+    label: "Geometri dan Trigonometri",
+  },
+  {
+    value: "3",
+    label: "Statistika dan Peluang",
+  },
+  {
+    value: "4",
+    label: "Kalkulus",
+  },
+];
+
+class CreatePost extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      editorState: undefined,
+      type: "1",
+      title: "",
+      date: "",
+      thumbailPost: "",
+    };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleChangeType = this.handleChangeType.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event, field) {
+    this.setState({ [field]: event.target.value });
+    //this.setState({ data: event.target.value });
+    console.log(event.target.value);
+  }
+
+  handleChangeType(event) {
+    this.setState({ type: event.target.value });
+  }
+
+  handleSubmit(event) {
+    const posts = JSON.stringify(
+      this.state.editorState &&
+        draftToMarkdown(
+          convertToRaw(this.state.editorState.getCurrentContent())
+        )
+    );
+    console.log(this.state);
+    const body = {
+      type: this.state.type,
+      title: this.state.title,
+      date: this.state.date,
+      thumbailPost: this.state.thumbailPost,
+      post: posts,
+    };
+
+    axios({
+      method: "post",
+      url: api,
+      data: body,
+    })
+      .then(function(response) {
+        console.log(response);
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+
+    event.preventDefault();
+  }
 
   onEditorStateChange: Function = (editorState) => {
     this.setState({
@@ -17,25 +126,95 @@ export default class CreatePost extends Component {
     });
   };
 
+  onContentStateChange: Function = (contentState) => {
+    this.setState({
+      contentState,
+    });
+  };
+
   render() {
+    const { classes } = this.props;
     const { data } = this.state;
     const { editorState } = this.state;
+
     return (
-      <div>
-        <Chc />
-        <Editor
-          wrapperClassName="demo-wrapper"
-          editorClassName="demo-editor"
-          onEditorStateChange={this.onEditorStateChange}
-        />
-        <textarea
-          disabled
-          value={
-            editorState &&
-            draftToMarkdown(convertToRaw(editorState.getCurrentContent()))
-          }
-        />
-      </div>
+      <React.Fragment>
+        <CssBaseline />
+        <Container maxWidth="lg">
+          <TextField
+            id="standard-select-currency"
+            select
+            label="TYPE"
+            value={this.state.type}
+            onChange={(event) => this.handleChange(event, "type")}
+            helperText="Please select your currency"
+          >
+            {currencies.map((option) => (
+              <MenuItem key={option.value} value={option.value}>
+                {option.label}
+              </MenuItem>
+            ))}
+          </TextField>
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            id="title"
+            label="title"
+            name="title"
+            autoComplete="text"
+            autoFocus
+            onChange={(event) => this.handleChange(event, "title")}
+          />
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            id="date"
+            label="date"
+            name="date"
+            autoComplete="text"
+            autoFocus
+            onChange={(event) => this.handleChange(event, "date")}
+          />
+          <TextField
+            textarea
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            id="thumbailPost"
+            label="thumbailPost"
+            name="thumbailPost"
+            autoComplete="text"
+            autoFocus
+            onChange={(event) => this.handleChange(event, "thumbailPost")}
+          />
+          <div>
+            <Chc />
+            <Editor
+              wrapperClassName="demo-wrapper"
+              editorClassName="demo-editor"
+              onEditorStateChange={this.onEditorStateChange}
+              onContentStateChange={this.onContentStateChange}
+            />
+          </div>
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="primary"
+            className={classes.submit}
+            onClick={this.handleSubmit}
+          >
+            Save
+          </Button>
+        </Container>
+      </React.Fragment>
     );
   }
 }
+
+export default withStyles(useStyles)(CreatePost);
