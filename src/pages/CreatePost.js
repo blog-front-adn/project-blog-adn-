@@ -13,6 +13,7 @@ import Chc from "../components/CheckLogin";
 import { convertFromRaw } from "draft-js";
 import MenuItem from "@material-ui/core/MenuItem";
 import axios from "axios";
+import swal from "sweetalert";
 
 const api = process.env.REACT_APP_API_POST;
 
@@ -67,6 +68,7 @@ class CreatePost extends Component {
     super(props);
 
     this.state = {
+      btn: false,
       editorState: undefined,
       type: "1",
       title: "",
@@ -104,16 +106,29 @@ class CreatePost extends Component {
       thumbailPost: this.state.thumbailPost,
       post: posts,
     };
-
+    this.setState({ btn: true });
     axios({
       method: "post",
       url: api,
       data: body,
     })
-      .then(function(response) {
-        console.log(response);
+      .then((res) => {
+        swal({
+          title: "SAVED",
+          text: "",
+          icon: "success",
+        });
+
+        this.setState({ btn: false });
+        console.log(res);
       })
-      .catch(function(error) {
+      .catch((error) => {
+        swal({
+          title: "error",
+          text: "",
+          icon: "error",
+        });
+        this.setState({ btn: false });
         console.log(error);
       });
 
@@ -207,6 +222,7 @@ class CreatePost extends Component {
             variant="contained"
             color="primary"
             className={classes.submit}
+            disabled={this.state.btn}
             onClick={this.handleSubmit}
           >
             Save

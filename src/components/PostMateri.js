@@ -10,6 +10,7 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Hidden from "@material-ui/core/Hidden";
 import { Link, withRouter, useLocation } from "react-router-dom";
+import Markdown from "./Markdown";
 
 const useStyles = makeStyles({
   card: {
@@ -47,6 +48,7 @@ export default function FeaturedPost(props) {
                         <Typography variant="subtitle1" paragraph>
                           {post.thumbailPost}....
                         </Typography>
+                        <Markdown key={post._id}>{post.post}</Markdown>
                         <Typography variant="subtitle1" color="primary">
                           Continue reading...
                         </Typography>
