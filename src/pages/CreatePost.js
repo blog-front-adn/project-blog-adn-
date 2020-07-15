@@ -5,7 +5,7 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import { withStyles } from "@material-ui/core/styles";
-import { convertToRaw } from "draft-js";
+import { EditorState, convertToRaw } from "draft-js";
 import { Editor } from "react-draft-wysiwyg";
 import draftToMarkdown from "draftjs-to-markdown";
 import "../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
@@ -14,6 +14,8 @@ import { convertFromRaw } from "draft-js";
 import MenuItem from "@material-ui/core/MenuItem";
 import axios from "axios";
 import swal from "sweetalert";
+import draftToHtml from "draftjs-to-html";
+import htmlToDraft from "html-to-draftjs";
 
 const api = process.env.REACT_APP_API_POST;
 
@@ -69,7 +71,7 @@ class CreatePost extends Component {
 
     this.state = {
       btn: false,
-      editorState: undefined,
+      editorState: EditorState.createEmpty(),
       type: "1",
       title: "",
       date: "",
@@ -92,12 +94,10 @@ class CreatePost extends Component {
   }
 
   handleSubmit(event) {
-    const posts = JSON.stringify(
+    const posts =
       this.state.editorState &&
-        draftToMarkdown(
-          convertToRaw(this.state.editorState.getCurrentContent())
-        )
-    );
+      draftToHtml(convertToRaw(this.state.editorState.getCurrentContent()));
+
     console.log(this.state);
     const body = {
       type: this.state.type,

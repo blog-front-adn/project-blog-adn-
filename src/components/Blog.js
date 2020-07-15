@@ -12,7 +12,7 @@ import FeaturedPost from "./FeaturedPost";
 import Main from "./Main";
 import Sidebar from "./Sidebar";
 import Footer from "./Footer";
-import Carousel from './Caraosel'
+import Carousel from "./Caraosel";
 
 import post2 from "./blog-post.2.md";
 import post3 from "./blog-post.3.md";
@@ -119,7 +119,7 @@ export default function Blog() {
         title="Hello"
         description="Something here to give the footer a purpose!"
       />
-      
+      <img src="https://lh5.googleusercontent.com/5QSDGN0iwOyrWWVoyrUWszvgOnBDKzxb3nmchbbycRDysnRJJLWQ6bxBjHkX2d48hM58PiUI1rXAQSR7pHUQ=w1920-h500-rw"></img>
     </React.Fragment>
   );
 }

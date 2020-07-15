@@ -69,12 +69,6 @@ export default function Aljabar() {
       <Container maxWidth="lg">
         <Header />
         <main>
-          {data.length > 0 ? (
-            <Markdown key={"post.substring(0, 40)"}>{data[2].post}</Markdown>
-          ) : (
-            ""
-          )}
-          {/*  */}
           <Grid container spacing={4}>
             <PostMateri post={data} />
           </Grid>
