@@ -22,18 +22,21 @@ const api = process.env.REACT_APP_API_POST;
 const useStyles = (theme) => ({
   root: {
     "& .MuiTextField-root": {
+      
       margin: theme.spacing(1),
       width: "25ch",
     },
   },
 
   paper: {
+    
     marginTop: theme.spacing(8),
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
   },
   avatar: {
+    
     margin: theme.spacing(1),
     backgroundColor: theme.palette.secondary.main,
   },
@@ -43,6 +46,9 @@ const useStyles = (theme) => ({
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
+    width: "35%",
+    height: "50px", 
+    marginLeft: "350px",
   },
 });
 
@@ -100,6 +106,7 @@ class CreatePost extends Component {
 
     console.log(this.state);
     const body = {
+      marginTop: "100px",
       type: this.state.type,
       title: this.state.title,
       date: this.state.date,
