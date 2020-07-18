@@ -13,7 +13,7 @@ import Main from "./Main";
 import Sidebar from "./Sidebar";
 import Footer from "./Footer";
 import Carousel from "./Caraosel";
-
+import "../App.css";
 import post2 from "./blog-post.2.md";
 import post3 from "./blog-post.3.md";
 import Gambar from "./pict/1.JPG";
@@ -106,16 +106,16 @@ export default function Blog() {
               // <Main />
             }
 
-            <Sidebar
+            {/* <Sidebar
               title={sidebar.title}
               description={sidebar.description}
               archives={sidebar.archives}
               social={sidebar.social}
-            />
+            /> */}
           </Grid>
         </main>
       </Container>
-      <Footer
+      <Footer 
         title="Hello"
         description="Something here to give the footer a purpose!"
       />
