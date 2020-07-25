@@ -106,7 +106,7 @@ class CreatePost extends Component {
 
     console.log(this.state);
     const body = {
-      marginTop: "100px",
+      
       type: this.state.type,
       title: this.state.title,
       date: this.state.date,
